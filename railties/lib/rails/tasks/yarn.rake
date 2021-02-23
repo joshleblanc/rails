@@ -10,7 +10,7 @@ namespace :yarn do
     end
 
     yarn_flags =
-      if `"#{Rails.root}/bin/yarn" --version`.start_with?("1")
+      if `#{RbConfig.ruby} "#{Rails.root}/bin/yarn" --version`.start_with?("1")
         "--no-progress --frozen-lockfile"
       else
         "--immutable"
